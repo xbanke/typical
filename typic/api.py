@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
 import functools
 import inspect
 import dataclasses
@@ -26,7 +24,7 @@ from typic.coercer import (
     _origsettergetter,
     BoundArguments,
     ResolvedAnnotation,
-    Annotations,
+    AnnotationsT,
     Strict,
     StrictStrT,
 )
@@ -176,7 +174,7 @@ def wrap_cls(
             cls_.schema = classmethod(coerce.schema)  # type: ignore
         cls_.primitive = primitive  # type: ignore
 
-        ann: Optional[Annotations] = None
+        ann: Optional[AnnotationsT] = None
         if not delay:
             ann = coerce.annotations(cls_, strict=strict)
             if jsonschema:

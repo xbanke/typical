@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
 import dataclasses
 import re
 from typing import ClassVar, Pattern, Match, Optional

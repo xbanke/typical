@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
 import dataclasses
 from typing import ClassVar, Type, Pattern, Tuple, Optional, Union, Dict, Any, Text
 

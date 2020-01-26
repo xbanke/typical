@@ -1,11 +1,9 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
 # flake8: noqa
-from . import types, constraints
+from . import types, constraints, ext
 from .checks import *
 from .constraints import *
 from .klass import klass
-from typic.schema import *
+from .schema import *
 from .types import *
 from .util import *
 

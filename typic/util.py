@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
 import ast
 import collections
 import dataclasses
@@ -163,7 +161,7 @@ def origin(annotation: Any) -> Any:
 
 
 @functools.lru_cache(maxsize=None)
-def get_args(annotation: Any) -> Tuple[Any, ...]:
+def get_args(annotation: Any) -> Tuple[Type[Any], ...]:
     """Get the args supplied to an annotation, excluding :py:class:`typing.TypeVar`.
 
     Examples

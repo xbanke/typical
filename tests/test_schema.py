@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
 import pytest
 
 from typing import List, Tuple, Set, Union, Mapping, Dict, Any

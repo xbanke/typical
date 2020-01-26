@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
 import pytest
 
 from typic.types import FilePath, DirectoryPath

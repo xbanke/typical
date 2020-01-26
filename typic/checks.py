@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
 import datetime
 import enum
 import functools
@@ -20,6 +18,9 @@ from typing import (
 import typic
 import typic.util as util
 from typic.compat import Final
+
+_SpecialForm = type(Union)
+_GenericAlias = type(Mapping)
 
 ObjectT = TypeVar("ObjectT")
 """A type-alias for a python object.
@@ -380,7 +381,7 @@ _isinstance = isinstance
 def _type_check(t) -> bool:
     if _isinstance(t, tuple):
         return all(_type_check(x) for x in t)
-    return inspect.isclass(t)
+    return inspect.isclass(t) or type(t) in {_SpecialForm, _GenericAlias}
 
 
 def isinstance(o: Any, t: Union[Type[ObjectT], Tuple[Type[ObjectT], ...]]) -> bool:

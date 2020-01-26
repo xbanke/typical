@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
 import dataclasses
 from types import MappingProxyType
 from typing import ClassVar, Pattern, Dict, Set, Match, Optional, Mapping, List

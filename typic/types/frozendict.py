@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
 import copy
 from operator import attrgetter
 from typing import Union, Tuple, List, Any, TypeVar, Mapping, Generic

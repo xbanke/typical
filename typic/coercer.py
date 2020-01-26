@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: UTF-8 -*-
 import dataclasses
 import datetime
 import inspect
@@ -173,7 +171,7 @@ class ResolvedAnnotation:
         return self._call(val)
 
 
-Annotations = Dict[str, ResolvedAnnotation]
+AnnotationsT = Dict[str, ResolvedAnnotation]
 """A mapping of attr/param name to :py:class:`ResolvedAnnotation`."""
 
 
@@ -181,7 +179,7 @@ Annotations = Dict[str, ResolvedAnnotation]
 class BoundArguments:
     obj: Union[Type, Callable]
     """The object we "bound" the input to."""
-    annotations: Annotations
+    annotations: AnnotationsT
     """A mapping of the resolved annotations."""
     parameters: Mapping[str, inspect.Parameter]
     """A mapping of the parameters."""
@@ -600,7 +598,7 @@ class TypeCoercer:
         return resolved
 
     @cachedmethod
-    def annotations(self, obj, *, strict: bool = False) -> Annotations:
+    def annotations(self, obj, *, strict: bool = False) -> AnnotationsT:
         """Get a mapping of param/attr name -> :py:class:`ResolvedAnnotation`
 
         Parameters
@@ -791,7 +789,7 @@ class TypeCoercer:
     def _bind_input(
         self,
         obj: Union[Type, Callable],
-        annos: Annotations,
+        annos: AnnotationsT,
         params: Mapping[str, inspect.Parameter],
         args: Iterable[Any],
         kwargs: Dict[str, Any],
