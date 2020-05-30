@@ -8,7 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, macos-latest]
         python-version: [3.7, 3.7, 3.8, pypy3]
 
     steps:
@@ -21,6 +21,15 @@ jobs:
 
     - name: Display Python version
       run: python -c "import sys; print(f'Python {sys.version} on {sys.platform}')"
+
+    - name: Install Linux dependencies
+      if: startsWith(matrix.os, 'ubuntu')
+      run: |
+        ./.github/ubuntu-install.sh
+    - name: Install macOS dependencies
+      if: startsWith(matrix.os, 'macos')
+      run: |
+        ./.github/macos-install.sh
 
     - name: Install Poetry
       uses: dschep/install-poetry-action@v1.2
