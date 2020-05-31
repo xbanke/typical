@@ -5,7 +5,7 @@ restore_home_cache ".cache" "pip cache" &&
 restore_cwd_cache '.venv' 'python virtualenv' &&
 pip3 install -q poetry &&
 poetry config virtualenvs.in-project true &&
-poetry install &&
+poetry install --no-dev -E docs &&
 mkdocs build &&
 cp mkdocs/_redirects site/_redirects
 """
